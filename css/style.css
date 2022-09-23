@@ -119,6 +119,7 @@ html{
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     scroll-behavior: smooth;
+    touch-action: none;
 }
   
 *,
@@ -193,7 +194,7 @@ section{
 }
 
 .btn__style{
-    padding: 25px 54px;
+    padding: 23px 52px;
     cursor: pointer;
     font-weight: 500;
     font-size: 20px;
@@ -202,25 +203,25 @@ section{
     color: var(--color-white);
     border-radius: 40px;
     outline: none;
-    border: none;
-    -webkit-transition: outline var(--animation-transition), background-color var(--animation-transition);
-    -o-transition: outline var(--animation-transition), background-color var(--animation-transition);
-    transition: outline var(--animation-transition), background-color var(--animation-transition);
+    border: 2px solid var(--color-dark-purple);
+    -webkit-transition: border-color var(--animation-transition), background-color var(--animation-transition);
+    -o-transition: border-color var(--animation-transition), background-color var(--animation-transition);
+    transition: border-color var(--animation-transition), background-color var(--animation-transition);
 }
 
-.btn__style:focus{
-    outline: 2px solid var(--color-deep-purple);
+.btn__style:focus-visible{
     background: var(--color-purple-blue);
+    border-color: var(--color-deep-purple);
 }
 
 .btn__style:hover{
-    outline: none;
     background: var(--color-purple-blue);
+    border-color: var(--color-purple-blue);
 }
 
 .btn__style:active{
-    outline: none;
     background: var(--color-deep-purple);
+    border-color: var(--color-deep-purple);
 }
 
 .header{
@@ -261,38 +262,29 @@ section{
 }
 
 .nav__item{
-    padding: 4px 10px;
     font-weight: 400;
     font-size: 20px;
     line-height: 20px;
 
     color: var(--color-black-blue);
+    
+}
+
+.nav__link{
+    padding: 4px 10px;
     -webkit-transition: color var(--animation-transition), background-color var(--animation-transition);
     -o-transition: color var(--animation-transition), background-color var(--animation-transition);
     transition: color var(--animation-transition), background-color var(--animation-transition);
 }
 
-.nav__item:focus-within{
-    background: var(--color-purple-blue);
-}
-
-.nav__link{
-    outline: none;
-    -webkit-transition: color var(--animation-transition);
-    -o-transition: color var(--animation-transition);
-    transition: color var(--animation-transition);
-}
-
-.nav__link:focus{
+.nav__link:focus-visible{ 
     color: var(--color-white);
+    background: var(--color-purple-blue);
+    outline: none;
 }
 
-.nav__item:hover{
+.nav__link:hover{
     color: var(--color-dark-purple);
-}
-
-.nav__item:active{
-    background: none;
 }
 
 .nav__link:active{
@@ -332,7 +324,7 @@ section{
     line-height: 16px;
     color: var(--color-black-blue);
     border: none;
-    outline: inherit;
+    outline: none;
     border-bottom: 1px solid var(--color-dark-purple);
 }
 
@@ -360,23 +352,23 @@ section{
 
 .btn__enter{
     margin-left: 24px;
-    padding: 10px 30.5px;
-    border: none;
+    padding: 8px 28.5px;
+    outline: none;
+    border: 2px solid var(--color-black-blue);
     border-radius: 77px;
     color: var(--color-black-blue);
     background: var(--color-white);
-    outline: 2px solid var(--color-black-blue);
 
     cursor: pointer;
     font-weight: 500;
     font-size: 16px;
     line-height: 16px;
-    -webkit-transition: background-color var(--animation-transition), color var(--animation-transition), outline var(--animation-transition);
-    -o-transition: background-color var(--animation-transition), color var(--animation-transition), outline var(--animation-transition);
-    transition: background-color var(--animation-transition), color var(--animation-transition), outline var(--animation-transition);
+    -webkit-transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
+    -o-transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
+    transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
 }
 
-.btn__enter:focus{
+.btn__enter:focus-visible{
     background: var(--color-purple-blue);
 }
 
@@ -387,7 +379,7 @@ section{
 
 .btn__enter:active{
     background: var(--color-deep-purple);
-    outline: 2px solid var(--color-deep-purple);
+    border-color: var(--color-deep-purple);
     color: var(--color-white);
 }
 
@@ -407,6 +399,8 @@ section{
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    margin: initial;
+    max-width: initial;
 }
 
 .sub__nav{
@@ -418,7 +412,7 @@ section{
     width: 620px;
 }
 
-.sub__nav .nav__item{
+.sub__nav .nav__link{
     padding: 3px 5px;
     font-size: 16px;
     line-height: 16px;
@@ -552,9 +546,23 @@ section{
     background: var(--color-white);
 }
 
-.hero__content-right{
-    margin-top: -64px;
-    margin-left: 125px;
+.hero__container{
+    position: relative;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 350px;
+    min-height: 308px;
+}
+
+.hero__container::after{
+    position: absolute;
+    top: -64px;
+    right: 0;
+    content: '';
+    width: 350px;
+    height: 372px;
+    background: url('../img/hero/microphone.png') center no-repeat;
+    background-size: contain;
 }
 
 .hero__title{
@@ -598,7 +606,7 @@ section{
     display: flex;
     margin-top: 30px;
     width: 540px;
-    height: 140px;
+    min-height: 140px;
     background: var(--color-white);
 }
 
@@ -609,6 +617,11 @@ section{
 .item__image{
     position: relative;
     width: 142px;
+}
+
+.item__image img{
+    max-width: 112px;
+    height: 100%;
 }
 
 .podcasts__data{
@@ -625,6 +638,8 @@ section{
 }
 
 .item__container{
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -632,6 +647,7 @@ section{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    margin-bottom: auto;
 }
 
 .music__information{
@@ -645,6 +661,7 @@ section{
     margin-right: auto;
     padding: 24px 0;
     padding-left: 30px;
+    max-width: 205px;
 }
 
 .music__time{
@@ -708,13 +725,13 @@ section{
     fill: none;
 }
 
-.btn__social:focus, .btn__social:focus, .btn__social:focus:first-child svg path{
+.btn__social:focus-visible, .btn__social:focus-visible, .btn__social:focus-visible:first-child svg path{
     fill: var(--color-white);
     color: var(--color-white);
     background: var(--color-purple-blue);
 }
 
-.btn__social:focus:not(:first-child) svg path{
+.btn__social:focus-visible:not(:first-child) svg path{
     stroke: var(--color-white);
 }
 
@@ -743,7 +760,7 @@ section{
     color: var(--color-deep-purple);
 }
 
-.increace:focus .social__attributes{
+.increace:focus-visible .social__attributes{
     color: var(--color-white);
 }
 
@@ -768,7 +785,7 @@ section{
     stroke: var(--color-deep-purple);
 }
 
-.increace:focus:not(:first-child) svg path{
+.increace:focus-visible:not(:first-child) svg path{
     fill: var(--color-white);
 }
 
@@ -789,27 +806,27 @@ section{
     margin-left: auto;
     margin-right: auto;
     color: var(--color-dark-purple);
-    outline: 2px solid var(--color-dark-purple);
+    border: 2px solid var(--color-dark-purple);
     background: none;
-    -webkit-transition: background-color var(--animation-transition), color var(--animation-transition), outline var(--animation-transition);
-    -o-transition: background-color var(--animation-transition), color var(--animation-transition), outline var(--animation-transition);
-    transition: background-color var(--animation-transition), color var(--animation-transition), outline var(--animation-transition);
+    -webkit-transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
+    -o-transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
+    transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
 }
 
-.btn__podcasts:focus{
+.btn__podcasts:focus-visible{
     color: var(--color-white);
-    outline: 2px solid var(--color-dark-purple);
+    border-color: var(--color-dark-purple);
 }
 
 .btn__podcasts:hover{
     color: var(--color-white);
     background: var(--color-dark-purple);
-    outline: none;
+    border-color: var(--color-dark-purple);
 }
 
 .btn__podcasts:active{
     background: var(--color-deep-purple);
-    outline: none;
+    border-color: var(--color-deep-purple);
 }
 
 .broadcasts{
@@ -881,6 +898,10 @@ section{
 .choices[data-type*=select-one]{
     margin-top: 4px;
     z-index: 2;
+}
+
+.choices__list--dropdown{
+    margin-top: -8px;
 }
 
 .choices__list--dropdown, .choices__list[aria-expanded]{
@@ -963,6 +984,8 @@ section{
 
 .broadcasts__item{
     position: relative;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 30px;
     margin-left: 30px;
     -webkit-transition: -webkit-box-shadow var(--animation-transition);
@@ -980,6 +1003,10 @@ section{
 .broadcasts__item:hover, .broadcasts__item:active{
     -webkit-box-shadow: none;
             box-shadow: none;
+}
+
+.broadcasts__item picture{
+    height: 148px;
 }
 
 .broadcasts__item img{
@@ -1001,8 +1028,9 @@ section{
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-top: -7px;
     padding: 19px 15px;
+    max-width: 255px;
+    height: 100%;
     background: var(--color-white);
     border: 1px solid var(--color-lavender);
 }
@@ -1016,6 +1044,7 @@ section{
 
 .broadcasts__item .item__schedule{
     margin-top: 4px;
+    margin-bottom: auto;
     font-size: 12px;
     line-height: 12px;
     color: var(--color-gray);
@@ -1023,7 +1052,7 @@ section{
 
 .broadcasts__item .item__link{
     margin-top: 20px;
-    width: 120px;
+    width: 125px;
     font-style: italic;
     font-weight: 400;
     font-size: 16px;
@@ -1057,13 +1086,25 @@ section{
 }
 
 
-.broadcasts__item .item__link:focus, .broadcasts__item .item__link:focus svg path{
+.broadcasts__item .item__link:focus-visible, .broadcasts__item .item__link:focus-visible svg path{
     outline: none;
     color: var(--color-white);
     -webkit-box-shadow: 0 0 0 2px var(--color-purple-blue);
             box-shadow: 0 0 0 2px var(--color-purple-blue);
     background: var(--color-purple-blue);
     fill: var(--color-white);
+}
+
+.broadcasts__item .item__link svg:last-of-type{
+    display: none;
+}
+
+.broadcasts__item .item__link:hover svg:first-of-type, .broadcasts__item .item__link:active svg:first-of-type{
+    display: none;
+}
+
+.broadcasts__item .item__link:hover svg:last-of-type, .broadcasts__item .item__link:active svg:last-of-type{
+    display: initial;
 }
 
 .broadcasts__item .item__link:hover,  .broadcasts__item .item__link:hover svg path{
@@ -1098,8 +1139,12 @@ section{
     bottom: 30px;
 }
 
-.broadcasts__archive img{
+.broadcasts__archive::before{
+    content: '';
     width: 65px;
+    height: 89px;
+    background: url('../img/broadcast/mic.png') center no-repeat;
+    background-size: contain;
 }
 
 .archive__btn{
@@ -1111,16 +1156,6 @@ section{
     font-size: 16px;
     line-height: 16px;
     text-align: center;
-}
-
-.archive__container{
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
 }
 
 .archive__btn svg{
@@ -1204,7 +1239,7 @@ section{
     transition: background-color var(--animation-transition), color var(--animation-transition);
 }
 
-.accordion__title:focus{
+.accordion__title:focus-visible{
     outline: none;
     background: var(--color-gray-blue);
 }
@@ -1225,6 +1260,7 @@ section{
     margin-top: -31px;
     margin-bottom: -11px;  
     margin-left: auto;
+    transition: transform var(--animation-transition);
 }
 
 .accordion__title svg path, .accordion__title svg circle{
@@ -1313,7 +1349,7 @@ section{
     color: var(--color-purple-blue);
 }
 
-.btn__nav-item:focus{
+.btn__nav-item:focus-visible{
     color: var(--color-white);
     background: var(--color-purple-blue);
     outline: 3px solid var(--color-purple-blue);
@@ -1352,7 +1388,7 @@ section{
     transition: fill var(--animation-transition);
 }
 
-.social-network__link:focus svg path{
+.social-network__link:focus-visible svg path{
     fill: var(--color-purple-blue);    
 }
 
@@ -1393,7 +1429,7 @@ section{
     transition: background-color var(--animation-transition), border var(--animation-transition), color var(--animation-transition);
 }
 
-.accordion__content__btn:focus{
+.accordion__content__btn:focus-visible{
     background: var(--color-dark-purple);
     border: 2px solid var(--color-dark-purple);
     color: var(--color-white);
@@ -1525,6 +1561,8 @@ section{
 
 .playlists__list-item{
     position: relative;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 30px;
     outline: none;
     background: white;
@@ -1557,8 +1595,9 @@ section{
 }
 
 .playlists__card-container{
-    margin-top: -7px;
     padding: 15px;
+    max-width: 160px;
+    height: 100%;
     border: 1px solid var(--color-lavender);
     -webkit-transition: background-color var(--animation-transition), border-color var(--animation-transition);
     -o-transition: background-color var(--animation-transition), border-color var(--animation-transition);
@@ -1641,7 +1680,7 @@ section{
     transition: width var(--animation-transition), height var(--animation-transition);
 }
 
-.playlists__list-item:focus svg, .playlists__list-item:hover svg{
+.playlists__list-item:focus-visible svg, .playlists__list-item:hover svg{
     display: block;
 }
 
@@ -1649,6 +1688,15 @@ section{
     display: block;
     width: 56px;
     height: 56px;
+}
+
+.playlists__card-photo{
+    max-height: 160px;
+}
+
+.playlists__card-photo img{
+    height: 100%;
+    max-width: 160px;
 }
 
 .playlists__card-photo::before{
@@ -1659,15 +1707,15 @@ section{
     transition: background-color var(--animation-transition);
 }
 
-.playlists__list-item:focus .playlists__card-photo::before, .playlists__list-item:hover .playlists__card-photo::before, .playlists__list-item:active .playlists__card-photo::before{
+.playlists__list-item:focus-visible .playlists__card-photo::before, .playlists__list-item:hover .playlists__card-photo::before, .playlists__list-item:active .playlists__card-photo::before{
     position: absolute;
     z-index: 1;
-    height: 161px;
+    height: 160px;
     width: 160px;
     background: rgba(18, 23, 35, 0.8);
 }
 
-.playlists__list-item:focus .playlists__card-description{
+.playlists__list-item:focus-visible .playlists__card-description{
     color: var(--color-black-blue);
 }
 
@@ -1675,7 +1723,7 @@ section{
     color: var(--color-white);
 }
 
-.playlists__list-item:focus .playlists__card-container{
+.playlists__list-item:focus-visible .playlists__card-container{
     border-color: var(--color-purple-blue);
     background: var(--color-purple-blue);
 }
@@ -1750,7 +1798,7 @@ section{
     transition: background var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
 }
 
-.adv__btn:focus{
+.adv__btn:focus-visible{
     background-color: var(--color-yellow-gold);
     color: var(--color-black-blue);
 }
@@ -1860,11 +1908,11 @@ section{
     transition: fill var(--animation-transition), stroke var(--animation-transition);
 }
 
-.slider__btn:focus svg circle{
+.slider__btn:focus-visible svg circle{
     fill: var(--color-deep-purple);
 }
 
-.slider__btn:focus svg path, .slider__btn:focus svg circle{
+.slider__btn:focus-visible svg path, .slider__btn:focus-visible svg circle{
     stroke: var(--color-gray);
 }
 
@@ -2131,7 +2179,7 @@ section{
 
     .btn__enter{
         margin-left: 26px;
-        padding: 9px 30.5px;
+        padding: 7px 28.5px;
     }
 
     .header-sub__container{
@@ -2186,6 +2234,11 @@ section{
         padding-bottom: 83px;
     }
 
+    .hero__container{
+        padding-right: 256px;
+        min-height: 249px;
+    }
+
     .hero__title{
         margin-top: 2px;
     }
@@ -2198,13 +2251,10 @@ section{
         margin-top: 20px;
     }
 
-    .hero__content-right{
-        margin-top: -13px;
-        margin-left: 62px;
-    }
-
-    .hero__content-right img{
+    .hero__container::after{
+        top: -13px;
         width: 256px;
+        height: 262px;
     }
 
     .podcasts__item{
@@ -2230,7 +2280,6 @@ section{
     }
 
     .archive__btn{
-        margin-top: 27px;
         margin-left: 3px;
         padding: 9px 43px;
     }
@@ -2291,6 +2340,8 @@ section{
         margin-top: 6px;
     }
 
+  
+
     .playlists__container {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
@@ -2332,10 +2383,7 @@ section{
     }
 
     .playlists__list-item{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        height: 112px;
+        flex-direction: row;
     }
 
     .playlists__list-item:not(:nth-of-type(4n)){
@@ -2367,12 +2415,21 @@ section{
     }
 
     .playlists__list-item svg{
-        top: 56px;
+        top: 50%;
         left: 56px;
     }
 
-    .playlists__list-item:focus .playlists__card-photo::before, .playlists__list-item:hover .playlists__card-photo::before, .playlists__list-item:active .playlists__card-photo::before{
-        height: 112px;
+    .playlists__card-photo{
+        max-height: initial;
+    }
+
+    .playlists__card-photo img{
+        height: 100%;
+        width: 112px;
+    }
+
+    .playlists__list-item:focus-visible .playlists__card-photo::before, .playlists__list-item:hover .playlists__card-photo::before, .playlists__list-item:active .playlists__card-photo::before{
+        height: 100%;
         width: 112px;
     }
 
@@ -2757,7 +2814,11 @@ section{
         max-width: 540px;
     }
 
-    .hero__content-right{
+    .hero__container{
+        padding-right: 0;
+    }
+
+    .hero__container::after{
         display: none;
     }
 
@@ -2787,6 +2848,10 @@ section{
         width: 540px;
     }
 
+    .music__information{
+        max-width: 350px;
+    }
+
     .broadcasts{
         padding-bottom: 26px;
     }
@@ -2809,31 +2874,28 @@ section{
     }
 
     .broadcasts__archive{
-        position: initial;
+        position: relative;
         margin-top: 30px;
-        margin-left: 100px;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-                flex-direction: row;
+        margin-left: 50%;
+        padding-left: 90px;
+        transform: translateX(-65%);
+        bottom: initial;
     }
 
-    .archive__container{
-        margin-left: 20px;
+    .broadcasts__archive::before{
+        position: absolute;
+        left: 0;
+        width: 70px;
+        height: 96px;
     }
 
     .archive__btn{
-        margin-top: 0;
-        margin-left: 0;
+        margin: 0;
         width: 156px;
     }
 
     .archive__description{
         width: 255px;
-    }
-
-    .broadcasts__archive img{
-        width: 70px;
     }
 
     .guests{
@@ -3055,7 +3117,7 @@ section{
 
     .btn__enter{
         position: absolute;
-        padding: 9.5px 24px;
+        padding: 7.5px 22px;
         width: 85px;
         top: 9px;
         right: 0;
@@ -3076,6 +3138,8 @@ section{
         -webkit-box-pack: end;
             -ms-flex-pack: end;
                 justify-content: end;
+        margin-top: 24px;
+        height: 140px;
     }
 
     .header__nav{
@@ -3267,12 +3331,15 @@ section{
                 flex-direction: column;
         
         max-width: 256px;
-        height: 185px;
+        min-height: 185px;
     }
     .podcasts__item:first-of-type{
         margin-top: 18px;
     }
     
+    .item__image img{
+        max-width: 256px;
+    }
 
     .podcasts__data{
         top: 0;
@@ -3282,6 +3349,7 @@ section{
     .music__information{
         margin-top: -6px;  
         padding: 16px;
+        max-width: 205px;
     }
     
     .music__name{
@@ -3348,14 +3416,16 @@ section{
     }
 
     .broadcasts__item{
-        height: 149px;
         margin-left: 30px;
+    }
+
+    .broadcasts__item picture{
+        max-height: 50px;
     }
 
     .broadcasts__item .item__content{
         padding: 10px;
         width: 113px;
-        height: 99px;
     }
 
     .broadcasts__item .item__title{
@@ -3364,14 +3434,21 @@ section{
     }
 
     .broadcasts__item .item__schedule{
+        margin-bottom: 30px;
         font-size: 9px;
         line-height: 9px;
     }
 
     .broadcasts__item .item__link{
         margin-top: auto;
+        width: 100px;
         font-size: 12px;
         line-height: 12px;
+        color: var(--color-dark-purple);
+    }
+
+    .broadcasts__item .item__link svg path{
+        fill: var(--color-dark-purple);
     }
 
     .broadcasts__item .item__link svg{
@@ -3379,24 +3456,21 @@ section{
     }
 
     .broadcasts__archive{
+        flex-direction: column-reverse;
         margin: 0;
         margin-top: 30px;
+        transform: translateX(0);
     }
 
     .archive__btn{
         position: initial;
     }
 
-    .broadcasts__archive img{
+    .broadcasts__archive::before{
+        position: absolute;
+        left: 0;
         width: 77px;
-    }
-
-    .archive__container{
-        -webkit-box-orient: vertical;
-        -webkit-box-direction: reverse;
-            -ms-flex-direction: column-reverse;
-                flex-direction: column-reverse;
-        margin-left: 13px;
+        height: 105px;
     }
 
     .archive__description{
@@ -3407,7 +3481,7 @@ section{
     }
 
     .archive__btn{
-        margin-top: 6px;
+        margin-top: 7px;
         padding: 9.5px 31px;
         width: 132px;
     }
@@ -3587,14 +3661,21 @@ section{
             -ms-flex-direction: column;
                 flex-direction: column;
         width: 113px;
-        height: 159px;
     }
 
     .playlists__card-container{
         margin-top: -8px;
         padding: 10px;
         padding-right: 0;
-        height: 46px;
+        width: 113px;
+    }
+
+    .playlists__list-item svg{
+        top: 50px;
+    }
+
+    .playlists__list-item:focus-visible .playlists__card-photo::before, .playlists__list-item:hover .playlists__card-photo::before, .playlists__list-item:active .playlists__card-photo::before{
+        height: 113px;
         width: 113px;
     }
 
@@ -3742,6 +3823,11 @@ section{
 
     .about-us__form{
         width: 256px;
+    }
+
+    .is-label-invalid, .just-validate-error-label{
+        top: 5px;
+        left: 25px;
     }
 
     .form__btn{
