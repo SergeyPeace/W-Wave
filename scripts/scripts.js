@@ -119,22 +119,22 @@ document.querySelector('.header__search').addEventListener('click', function() {
 }) 
 
 //Включение проигрывателя в header
-document.querySelectorAll('.btn__live').forEach(function(el) {
+document.querySelectorAll('.btn-live').forEach(function(el) {
     el.addEventListener('click', function() {
-        this.querySelector('.btn-pause').classList.toggle('btn__live--active');
+        this.querySelector('.btn-pause').classList.toggle('btn-live--active');
     })
 })      
 
 //Включение проигрывателя в podcasts
-document.querySelectorAll('.btn__music-play').forEach(function(el) {
+document.querySelectorAll('.btn-music-play').forEach(function(el) {
     el.addEventListener('click', function() {
-        this.querySelector('.btn-pause').classList.toggle('btn__live--active');
-        this.querySelector('.btn-play').classList.toggle('btn__live--active');
+        this.querySelector('.btn-pause').classList.toggle('btn-live--active');
+        this.querySelector('.btn-play').classList.toggle('btn-live--active');
     })
 })    
 
 //Открытие еще подкастов по кнопке "Ещё подкасты"
-document.querySelector('.btn__podcasts').addEventListener('click', function() {
+document.querySelector('.btn-podcasts').addEventListener('click', function() {
     document.querySelectorAll('.podcasts__item').forEach(function(e) {
         e.classList.remove('podcasts--hidden');
     })
@@ -142,9 +142,9 @@ document.querySelector('.btn__podcasts').addEventListener('click', function() {
 })
 
 //Изменение счётчиков лайков в записях
-document.querySelectorAll('.btn__social').forEach(function(el) {
+document.querySelectorAll('.btn-social').forEach(function(el) {
     el.addEventListener('click', function() {
-        let count = this.querySelector('.social__attributes');
+        let count = this.querySelector('.podcasts__social-attributes');
         if (this.classList.contains('increace') !== true) {
             count.textContent = parseInt(count.innerText, 10) + 1;
             this.classList.add('increace');
@@ -156,13 +156,13 @@ document.querySelectorAll('.btn__social').forEach(function(el) {
 })
 
 //Карточки в разделе Гости
-document.querySelectorAll('.btn__nav-item').forEach(function(el) {
+document.querySelectorAll('.btn-nav-item').forEach(function(el) {
     el.addEventListener('click', function(e) {
         const path = e.currentTarget.dataset.guests__path;
-        document.querySelectorAll('.btn__nav-item').forEach(function(btn){
-            btn.classList.remove('btn__nav-item--active');
+        document.querySelectorAll('.btn-nav-item').forEach(function(btn){
+            btn.classList.remove('btn-nav-item--active');
         });
-        e.currentTarget.classList.add('btn__nav-item--active'); 
+        e.currentTarget.classList.add('btn-nav-item--active'); 
         document.querySelectorAll('.accordion__content').forEach(function(element) {
             element.classList.remove("accordion__content--active");
         });
@@ -171,35 +171,35 @@ document.querySelectorAll('.btn__nav-item').forEach(function(el) {
 })
 
 //Работа бургер-меню
-document.querySelector('.burger-menu__btn').addEventListener('click', function(){
-    this.classList.toggle('burger-menu__btn--active');
-    this.classList.toggle('burger-menu__btn--close');
+document.querySelector('.burger-menu').addEventListener('click', function(){
+    this.classList.toggle('burger-menu--active');
+    this.classList.toggle('burger-menu--close');
     document.querySelector('.header__nav').classList.toggle('header__nav--active');
     document.body.classList.toggle('stop-scroll');
     if(window.innerWidth <= 690){
-        document.querySelector('.sub__nav').classList.toggle('sub__nav--active');
+        document.querySelector('.header-sub__nav').classList.toggle('header-sub__nav--active');
     }
 })
 
 //Закрытие бургер-меню при переходе по ссылке
 document.querySelectorAll('.nav__link').forEach(function(el){
     el.addEventListener('click', function(){
-        document.querySelector('.burger-menu__btn').classList.remove('burger-menu__btn--active');
-        document.querySelector('.burger-menu__btn').classList.add('burger-menu__btn--close');
+        document.querySelector('.burger-menu').classList.remove('burger-menu--active');
+        document.querySelector('.burger-menu').classList.add('burger-menu--close');
         document.querySelector('.header__nav').classList.remove('header__nav--active');
         document.body.classList.remove('stop-scroll');
         if(window.innerWidth <= 690){
-            document.querySelector('.sub__nav').classList.remove('sub__nav--active');
+            document.querySelector('.header-sub__nav').classList.remove('header-sub__nav--active');
         }
     })
 })
 
 //Открытие еще подкастов по кнопке "Ещё подкасты" на мобильной версии
-document.querySelector('.btn__live-mobile').addEventListener('click', function(){
-    this.classList.toggle('btn__live-mobile--open');
-    document.querySelectorAll('.btn__live').forEach(function(el){
-        el.classList.toggle('btn__live--open');
+document.querySelector('.live-mobile').addEventListener('click', function(){
+    this.classList.toggle('live-mobile--open');
+    document.querySelectorAll('.btn-live').forEach(function(el){
+        el.classList.toggle('btn-live--open');
     })
-    document.querySelector('.header__sub').classList.toggle('header__sub--open');
+    document.querySelector('.header-sub').classList.toggle('header-sub--open');
     document.querySelector('.hero').classList.toggle('hero--open');
 })

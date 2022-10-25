@@ -1,4 +1,3 @@
-/* Подключение шрифтов */
 @font-face {
     font-family: 'Muller';
     font-style: normal;
@@ -119,7 +118,8 @@ html{
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     scroll-behavior: smooth;
-    touch-action: none;
+    -ms-touch-action: none;
+        touch-action: none;
 }
   
 *,
@@ -162,11 +162,12 @@ section{
     padding: 94px 0;
 }
 
-.section__container{
+.container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin: 0 auto;
+    padding: 0;
     max-width: 1110px;
 }
 
@@ -185,7 +186,7 @@ section{
     overflow-y: hidden;
 }
 
-.btn__reset{
+.btn-reset{
     padding: 0;
     border: none;
     outline: none;
@@ -193,7 +194,7 @@ section{
     cursor: pointer;
 }
 
-.btn__style{
+.btn-style{
     padding: 23px 52px;
     cursor: pointer;
     font-weight: 500;
@@ -209,17 +210,17 @@ section{
     transition: border-color var(--animation-transition), background-color var(--animation-transition);
 }
 
-.btn__style:focus-visible{
+.btn-style:focus-visible{
     background: var(--color-purple-blue);
     border-color: var(--color-deep-purple);
 }
 
-.btn__style:hover{
+.btn-style:hover{
     background: var(--color-purple-blue);
     border-color: var(--color-purple-blue);
 }
 
-.btn__style:active{
+.btn-style:active{
     background: var(--color-deep-purple);
     border-color: var(--color-deep-purple);
 }
@@ -244,7 +245,7 @@ section{
             justify-content: center;
 }
 
-.burger-menu__btn{
+.burger-menu{
     display: none;
     width: 24px;
     height: 24px;
@@ -350,7 +351,7 @@ section{
 
 
 
-.btn__enter{
+.btn-enter{
     margin-left: 24px;
     padding: 8px 28.5px;
     outline: none;
@@ -368,23 +369,23 @@ section{
     transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
 }
 
-.btn__enter:focus-visible{
+.btn-enter:focus-visible{
     background: var(--color-purple-blue);
 }
 
-.btn__enter:hover{
+.btn-enter:hover{
     background: var(--color-black-blue);
     color: var(--color-white);
 }
 
-.btn__enter:active{
+.btn-enter:active{
     background: var(--color-deep-purple);
     border-color: var(--color-deep-purple);
     color: var(--color-white);
 }
 
 
-.header__sub{
+.header-sub{
     padding: 10px 0;
     border: 1px solid var(--color-lavender);
 }
@@ -403,26 +404,26 @@ section{
     max-width: initial;
 }
 
-.sub__nav{
+.header-sub__nav{
     display: block;
 }
 
-.sub__nav .nav__list{
+.header-sub__nav .nav__list{
     margin-left: 0;
     width: 620px;
 }
 
-.sub__nav .nav__link{
+.header-sub__nav .nav__link{
     padding: 3px 5px;
     font-size: 16px;
     line-height: 16px;
 }
 
-.btn__live-mobile--open, .btn__live-mobile{
+.live-mobile--open, .live-mobile{
     display: none;
 }
 
-.btn__live-container{
+.live-container{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -432,7 +433,7 @@ section{
             flex-direction: row;
 }
 
-.btn__live{
+.btn-live{
     position: relative;
     padding-right: 160px;
     padding-left: 12px;   
@@ -440,53 +441,53 @@ section{
     border-right: 1px solid var(--color-lavender);
 }
 
-.btn__live-archive{
+.btn-live-archive{
     margin-left: 50px;
     border-left: 1px solid var(--color-lavender);
 }
 
-.btn__live svg{
+.btn-live svg{
     position: absolute;
     top: 10px;
     left: 11px;
 }
 
-.btn__live svg path{
+.btn-live svg path{
     -webkit-transition: fill var(--animation-transition);
     -o-transition: fill var(--animation-transition);
     transition: fill var(--animation-transition);
 }
 
-.btn__live:focus svg path, .btn__music-play:focus svg path, .btn__music-play:focus svg rect{
+.btn-live:focus svg path, .btn-music-play:focus svg path, .btn-music-play:focus svg rect{
     fill: var(--color-purple-blue);
 } 
 
-.btn__music-play:focus svg circle{
+.btn-music-play:focus svg circle{
     stroke: var(--color-purple-blue);
 }
 
-.btn__live:hover svg path, .btn__music-play:hover svg path, .btn__music-play:hover svg rect{
+.btn-live:hover svg path, .btn-music-play:hover svg path, .btn-music-play:hover svg rect{
     fill: var(--color-dark-purple);
 } 
 
-.btn__music-play:hover svg circle{
+.btn-music-play:hover svg circle{
     stroke: var(--color-dark-purple);
 }
 
-.btn__live:active svg path, .btn__music-play:active svg circle{
+.btn-live:active svg path, .btn-music-play:active svg circle{
     fill: var(--color-deep-purple);
     stroke: var(--color-deep-purple);
 } 
 
-.btn__music-play:active svg path, .btn__music-play:active svg rect{
+.btn-music-play:active svg path, .btn-music-play:active svg rect{
     fill: var(--color-white);
 }
 
-.btn__live--active{
+.btn-live--active{
     opacity: 0;
 }
 
-.btn__live::before{
+.btn-live::before{
     position: absolute;
     top: 3px;
     left: 42px;
@@ -495,7 +496,7 @@ section{
     color: var(--color-gray);
 }
 
-.btn__live::after{
+.btn-live::after{
     position: absolute;
     left: 42px;
     bottom: 3px;
@@ -504,23 +505,23 @@ section{
     color: var(--color-black-blue);
 }
 
-.btn__live-archive::before{
+.btn-live-archive::before{
     content: "Ранее в эфире";
 }
 
-.btn__live-archive::after{
+.btn-live-archive::after{
     content: "«Музыка»";
 }
 
-.btn__live-now::before{
+.btn-live-now::before{
     content: "Сейчас в эфире";
 }
 
-.btn__live-now::after{
+.btn-live-now::after{
     content: "«Как так?»";
 }
 
-.sub__age-limit{
+.header-sub__age-limit{
     margin: -11px 0;
     margin-left: 52px;
     padding: 16px 8px;
@@ -548,8 +549,13 @@ section{
 
 .hero__container{
     position: relative;
-    flex-direction: column;
-    align-items: flex-start;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     padding-right: 350px;
     min-height: 308px;
 }
@@ -572,7 +578,7 @@ section{
     color: var(--color-black-blue);
 }
 
-.hero_description{
+.hero__description{
     margin-top: 14px;
     max-width: 635px;
     font-size: 16px;
@@ -638,8 +644,13 @@ section{
 }
 
 .item__container{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     width: 100%;
 }
 
@@ -684,14 +695,14 @@ section{
     color: var(--color-gray);
 }
 
-.btn__music-play{
+.btn-music-play{
     position: relative;
     margin: 30px;
     width: 42px;
     height: 42px;
 }
 
-.btn__music-play svg{
+.btn-music-play svg{
     position: absolute;
     top: -2px;
     left: -2px;
@@ -702,7 +713,7 @@ section{
     border-top: 1px solid var(--color-lavender);
 }
 
-.btn__social{
+.btn-social{
     padding: 2px;
     margin-right: 22px;
     font-size: 0;
@@ -712,7 +723,7 @@ section{
     transition: color var(--animation-transition), background-color var(--animation-transition);
 }
 
-.btn__social svg path{
+.btn-social svg path{
     -webkit-transition: fill var(--animation-transition), stroke var(--animation-transition);
     -o-transition: fill var(--animation-transition), stroke var(--animation-transition);
     transition: fill var(--animation-transition), stroke var(--animation-transition);
@@ -720,51 +731,51 @@ section{
 
 
 
-.btn__social:not(:first-child) svg path {
+.btn-social:not(:first-child) svg path {
     stroke: var(--color-gray);
     fill: none;
 }
 
-.btn__social:focus-visible, .btn__social:focus-visible, .btn__social:focus-visible:first-child svg path{
+.btn-social:focus-visible, .btn-social:focus-visible, .btn-social:focus-visible:first-child svg path{
     fill: var(--color-white);
     color: var(--color-white);
     background: var(--color-purple-blue);
 }
 
-.btn__social:focus-visible:not(:first-child) svg path{
+.btn-social:focus-visible:not(:first-child) svg path{
     stroke: var(--color-white);
 }
 
 
-.btn__social:hover, .btn__social:hover, .btn__social:hover:first-child svg path{
+.btn-social:hover, .btn-social:hover, .btn-social:hover:first-child svg path{
     fill: var(--color-dark-purple);
     color: var(--color-dark-purple);
     background: none;
 }
 
-.btn__social:hover:not(:first-child) svg path {
+.btn-social:hover:not(:first-child) svg path {
     stroke: var(--color-dark-purple);
 }
 
-.btn__social:active, .btn__social:active, .btn__social:active:first-child svg path{
+.btn-social:active, .btn-social:active, .btn-social:active:first-child svg path{
     fill: var(--color-deep-purple);
     color: var(--color-deep-purple);
     background: none;
 }
 
-.btn__social:active:not(:first-child) svg path {
+.btn-social:active:not(:first-child) svg path {
     stroke: var(--color-deep-purple);
 }
 
-.increace .social__attributes{
+.increace .podcasts__social-attributes{
     color: var(--color-deep-purple);
 }
 
-.increace:focus-visible .social__attributes{
+.increace:focus-visible .podcasts__social-attributes{
     color: var(--color-white);
 }
 
-.increace:hover .social__attributes, .increace:active .social__attributes{
+.increace:hover .podcasts__social-attributes, .increace:active .podcasts__social-attributes{
     color: var(--color-deep-purple);
 }
 
@@ -794,13 +805,13 @@ section{
 }
 
 
-.social__attributes{
+.podcasts__social-attributes{
     margin-left: 6px;
     font-size: 16px;
     line-height: 16px;
 }
 
-.btn__podcasts{
+.btn-podcasts{
     display: block;
     margin-top: 58px;
     margin-left: auto;
@@ -813,18 +824,18 @@ section{
     transition: background-color var(--animation-transition), color var(--animation-transition), border-color var(--animation-transition);
 }
 
-.btn__podcasts:focus-visible{
+.btn-podcasts:focus-visible{
     color: var(--color-white);
     border-color: var(--color-dark-purple);
 }
 
-.btn__podcasts:hover{
+.btn-podcasts:hover{
     color: var(--color-white);
     background: var(--color-dark-purple);
     border-color: var(--color-dark-purple);
 }
 
-.btn__podcasts:active{
+.btn-podcasts:active{
     background: var(--color-deep-purple);
     border-color: var(--color-deep-purple);
 }
@@ -854,7 +865,7 @@ section{
     color: var(--color-black-blue);
 }
 
-.broadcast__subtitle{
+.broadcasts__subtitle{
     margin-top: 12px;
     font-weight: 400;
     font-size: 16px;
@@ -911,7 +922,7 @@ section{
 .choices__list--dropdown .choices__list, .choices__list[aria-expanded] .choices__list{
     margin-top: 10px;
 }
-/*Эт норм*/
+
 .is-open .choices__inner{
     border-radius: 10px;
 }
@@ -920,13 +931,12 @@ section{
     padding: 10px 15px;
 }
 
-/*Эт норм*/
 .choices[data-type*=select-one]::after{
     width: 13px;
     border-color: rgba(0, 0, 0, 0);
     background: url("../img/broadcast/broadcast-arrow.svg") no-repeat center center;
 }
-/*Эт норм*/
+
 .choices[data-type*=select-one].is-open::after{
     border-color: rgba(0, 0, 0, 0);
     -webkit-transform: rotate(180deg) translateX(-2px);
@@ -984,8 +994,13 @@ section{
 
 .broadcasts__item{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-bottom: 30px;
     margin-left: 30px;
     -webkit-transition: -webkit-box-shadow var(--animation-transition);
@@ -1150,7 +1165,7 @@ section{
 .archive__btn{
     margin-top: 24px;
     margin-left: 0;
-    padding: 12px 45px;
+    padding: 12px 0;
     width: 160px;
     font-weight: 500;
     font-size: 16px;
@@ -1260,7 +1275,11 @@ section{
     margin-top: -31px;
     margin-bottom: -11px;  
     margin-left: auto;
+    -webkit-transition: -webkit-transform var(--animation-transition);
+    transition: -webkit-transform var(--animation-transition);
+    -o-transition: transform var(--animation-transition);
     transition: transform var(--animation-transition);
+    transition: transform var(--animation-transition), -webkit-transform var(--animation-transition);
 }
 
 .accordion__title svg path, .accordion__title svg circle{
@@ -1335,7 +1354,7 @@ section{
     width: 160px;
 }
 
-.btn__nav-item{
+.btn-nav-item{
     font-weight: 400;
     font-size: 16px;
     line-height: 16px;
@@ -1345,23 +1364,23 @@ section{
     transition: outline var(--animation-transition), background-color var(--animation-transition), color var(--animation-transition);
 }
 
-.btn__nav-item--active{
+.btn-nav-item--active{
     color: var(--color-purple-blue);
 }
 
-.btn__nav-item:focus-visible{
+.btn-nav-item:focus-visible{
     color: var(--color-white);
     background: var(--color-purple-blue);
     outline: 3px solid var(--color-purple-blue);
 }
 
-.btn__nav-item:hover{
+.btn-nav-item:hover{
     color: var(--color-dark-purple);
     outline: none;
     background: none;
 }
 
-.btn__nav-item:active{
+.btn-nav-item:active{
     color: var(--color-deep-purple);
     outline: none;
     background: none;
@@ -1561,8 +1580,13 @@ section{
 
 .playlists__list-item{
     position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     margin-bottom: 30px;
     outline: none;
     background: white;
@@ -2007,7 +2031,7 @@ section{
     border: 1px solid var(--color-white);
 }
 
-.form__validated-label:last-of-type{
+.about-us__form-container .form__validated-label:last-of-type{
     margin-left: 30px;
 }
 
@@ -2135,8 +2159,8 @@ section{
 
 @media (max-width: 1300px) {
     .header{
-        background: -webkit-gradient(linear, left bottom, left top, color-stop(70%, #fff), color-stop(30%, #E6E8EC));
         background: -o-linear-gradient(bottom, #fff 70%, #E6E8EC 30%);
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(70%, #fff), color-stop(30%, #E6E8EC));
         background: linear-gradient(to top, #fff 70%, #E6E8EC 30%);
     }
     .header__container{
@@ -2177,7 +2201,7 @@ section{
     }
 
 
-    .btn__enter{
+    .btn-enter{
         margin-left: 26px;
         padding: 7px 28.5px;
     }
@@ -2190,42 +2214,42 @@ section{
         max-width: 823px;
     }
 
-    .sub__age-limit{
+    .header-sub__age-limit{
         display: none;
     }
 
-    .sub__nav .nav__list{
+    .header-sub__nav .nav__list{
         margin-left: 0;
         width: 496px;
     }
 
-    .btn__live{
+    .btn-live{
         padding-left: 0;
         padding-right: 150px;
     }
 
-    .btn__live-archive{
+    .btn-live-archive{
         margin-left: 22px;
     }
 
-    .btn__live svg{
+    .btn-live svg{
         left: 16px;
     }
 
-    .btn__live::before{
+    .btn-live::before{
         left: 47px;
     }
 
-    .btn__live::after{
+    .btn-live::after{
         left: 47px;
         bottom: 4px;
     }
 
-    .btn__live:last-of-type::after{
+    .btn-live:last-of-type::after{
         left: 38px;
     }
 
-    .section__container{
+    .container {
         max-width: 823px;
     }
 
@@ -2243,7 +2267,7 @@ section{
         margin-top: 2px;
     }
 
-    .hero_description{
+    .hero__description{
         width: 505px;
     }
 
@@ -2261,7 +2285,7 @@ section{
         width: 397px;
     }
 
-    .btn__music-play{
+    .btn-music-play{
         margin: 0;
         margin-top: 32px;
         margin-right: 34px;
@@ -2281,7 +2305,7 @@ section{
 
     .archive__btn{
         margin-left: 3px;
-        padding: 9px 43px;
+        padding: 9px 0;
     }
 
     .archive__description{
@@ -2383,7 +2407,10 @@ section{
     }
 
     .playlists__list-item{
-        flex-direction: row;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
     }
 
     .playlists__list-item:not(:nth-of-type(4n)){
@@ -2494,7 +2521,7 @@ section{
         width: 397px;
     }
 
-    .form__validated-label:last-of-type{
+    .about-us__form-container .form__validated-label:last-of-type{
         margin-left: 26px;
     }
 
@@ -2530,7 +2557,7 @@ section{
         max-width: 540px;
     }
 
-    .section__container{
+    .container {
         max-width: 540px;
     }
 
@@ -2551,7 +2578,7 @@ section{
                 transform: translateX(-50%);
         width: 768px;
         background:  url('../img/header/nav-decoration.svg') no-repeat 542px -50px, var(--color-light-grey) url('../img/header/nav-decoration.svg') no-repeat 399px 86px;
-        z-index: 1;
+        z-index: 3;
     }
 
     .header__nav .nav__list{
@@ -2656,11 +2683,11 @@ section{
         }
     }
 
-    .burger-menu__btn{
+    .burger-menu{
         position: relative;
         display: block;
         margin-right: auto;
-        z-index: 2;
+        z-index: 5;
     }
 
     .burger-menu__line{
@@ -2680,7 +2707,7 @@ section{
         transition: opacity 0s 0.25s;
     }
 
-    .burger-menu__btn--close .burger-menu__line:nth-of-type(1){
+    .burger-menu--close .burger-menu__line:nth-of-type(1){
         top: 1.5px;
         -webkit-animation-name: crossMenuOne;
                 animation-name: crossMenuOne;
@@ -2689,11 +2716,11 @@ section{
         animation-direction: reverse;
     }
 
-    .burger-menu__btn--close .burger-menu__line:nth-of-type(2){
+    .burger-menu--close .burger-menu__line:nth-of-type(2){
         opacity: 1;
     }
 
-    .burger-menu__btn--close .burger-menu__line:nth-of-type(3){
+    .burger-menu--close .burger-menu__line:nth-of-type(3){
         bottom: -1.5px;
         -webkit-animation-name: crossMenuThree;
                 animation-name: crossMenuThree;
@@ -2782,7 +2809,7 @@ section{
         }
     }
 
-    .burger-menu__btn--active .burger-menu__line:nth-of-type(1){
+    .burger-menu--active .burger-menu__line:nth-of-type(1){
         top: 12px;
         left: 0;
         -webkit-transform: rotate(-45deg);
@@ -2794,11 +2821,11 @@ section{
                 animation-duration: 0.5s;
     }
 
-    .burger-menu__btn--active .burger-menu__line:nth-of-type(2){
+    .burger-menu--active .burger-menu__line:nth-of-type(2){
         opacity: 0;
     }
 
-    .burger-menu__btn--active .burger-menu__line:nth-of-type(3){
+    .burger-menu--active .burger-menu__line:nth-of-type(3){
         top: 12px;
         left: 0;
         -webkit-transform: rotate(45deg);
@@ -2822,20 +2849,20 @@ section{
         display: none;
     }
 
-    .btn__live-archive{
+    .btn-live-archive{
         display: none;
     }
 
-    .btn__live-now::before, .btn__live-now::after{
+    .btn-live-now::before, .btn-live-now::after{
         display: none;
     }
 
-    .btn__live-now{
+    .btn-live-now{
         padding: 0;
         border: none;
     }
 
-    .sub__nav .nav__list{
+    .header-sub__nav .nav__list{
         width: 505px;
     }
 
@@ -2878,7 +2905,9 @@ section{
         margin-top: 30px;
         margin-left: 50%;
         padding-left: 90px;
-        transform: translateX(-65%);
+        -webkit-transform: translateX(-65%);
+            -ms-transform: translateX(-65%);
+                transform: translateX(-65%);
         bottom: initial;
     }
 
@@ -3044,7 +3073,7 @@ section{
         width: 585px;
     }
 
-    .form__validated-label:last-of-type{
+    .about-us__form-container .form__validated-label:last-of-type{
         margin-left: 0;
         margin-top: 22px;
     }
@@ -3101,8 +3130,8 @@ section{
     }
     
     .header {
-        background: -webkit-gradient(linear, left bottom, left top, color-stop(64%, #fff), color-stop(36%, #E6E8EC));
         background: -o-linear-gradient(bottom, #fff 64%, #E6E8EC 36%);
+        background: -webkit-gradient(linear, left bottom, left top, color-stop(64%, #fff), color-stop(36%, #E6E8EC));
         background: linear-gradient(to top, #fff 64%, #E6E8EC 36%);
     }
 
@@ -3115,7 +3144,7 @@ section{
         background-size: 87px;
     }
 
-    .btn__enter{
+    .btn-enter{
         position: absolute;
         padding: 7.5px 22px;
         width: 85px;
@@ -3151,14 +3180,14 @@ section{
         margin-bottom: 28px;
     }
 
-    .header__sub{
+    .header-sub{
         padding: 13.5px 0;
         -webkit-transition: background-color var(--animation-transition);
         -o-transition: background-color var(--animation-transition);
         transition: background-color var(--animation-transition);
     }
 
-    .header__sub--open{
+    .header-sub--open{
         background: var(--color-lavender);
     }
 
@@ -3170,7 +3199,7 @@ section{
         width: 190px;
     }
 
-    .sub__nav{
+    .header-sub__nav{
         position: absolute;
         display: none;
         padding: 27px 2px 27px 26px;
@@ -3179,15 +3208,15 @@ section{
                 transform: translateX(-50%);
         left: 50%;
         top: 280px;
-        z-index: 2;
+        z-index: 4;
         background: var(--color-white);
     }
 
-    .sub__nav--active{
+    .header-sub__nav--active{
         display: block;
     }
 
-    .sub__nav .nav__list{
+    .header-sub__nav .nav__list{
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;
@@ -3198,11 +3227,11 @@ section{
         height: 114px;
     }
 
-    .sub__nav .nav__item:not(:nth-of-type(3n)){
+    .header-sub__nav .nav__item:not(:nth-of-type(3n)){
         margin-bottom: 20px;
     }
 
-    .btn__live-container{
+    .live-container{
         position: relative;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -3215,7 +3244,7 @@ section{
             flex-wrap: wrap;
     }
 
-    .btn__live-mobile{
+    .live-mobile{
         display:block;
         margin-left: 50%;
         width: 255px;
@@ -3229,7 +3258,7 @@ section{
         
     }
 
-    .btn__live-mobile svg{
+    .live-mobile svg{
         margin-bottom: -3px;
         -webkit-transition: -webkit-transform var(--animation-transition);
         transition: -webkit-transform var(--animation-transition);
@@ -3238,13 +3267,13 @@ section{
         transition: transform var(--animation-transition), -webkit-transform var(--animation-transition);
     }
 
-    .btn__live-mobile--open svg{    
+    .live-mobile--open svg{    
         -webkit-transform: rotate(45deg);    
             -ms-transform: rotate(45deg);    
                 transform: rotate(45deg);
     }
 
-    .btn__live{
+    .btn-live{
         position: absolute;
         display: none;
         margin: 11px 0 6px 0;
@@ -3254,22 +3283,22 @@ section{
         height: 64px;
     }
 
-    .btn__live--open{
+    .btn-live--open{
         display: block;
     }
 
-    .btn__live-archive{
+    .btn-live-archive{
         border-left: none;
         left: -10px;
     }
 
-    .btn__live::before{
+    .btn-live::before{
         display: block;
         top: 38px;
         left: 12px;
     }
 
-    .btn__live::after, .btn__live:last-of-type::after{
+    .btn-live::after, .btn-live:last-of-type::after{
         display: block;
         top: 52px;
         left: 12px;
@@ -3279,7 +3308,7 @@ section{
         padding: 54px 0;
     }
 
-    .section__container{
+    .container {
         max-width: 256px;
     }
 
@@ -3296,7 +3325,7 @@ section{
         line-height: 32px;
     }
 
-    .hero_description{
+    .hero__description{
         margin-top: 8px;
         width: 256px;
         font-size: 14px;
@@ -3364,12 +3393,12 @@ section{
         line-height: 12px;
     }
     
-    .btn__music-play{
+    .btn-music-play{
         margin-top: 18px;
         margin-right: 8px;
     }
 
-    .btn__music-play svg{
+    .btn-music-play svg{
         width: 36px;
         height: 36px;
     }
@@ -3381,7 +3410,7 @@ section{
         padding: 6px 0 8px 32px;
     }
 
-    .btn__social{
+    .btn-social{
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -3392,19 +3421,19 @@ section{
         margin-right: 27px;
     }
 
-    .social__attributes {
+    .podcasts__social-attributes {
         font-size: 12px;
         line-height: 12px;
     }
 
-    .btn__podcasts{
+    .btn-podcasts{
         margin-top: 30px;
         padding: 17px 30px;
         font-size: 16px;
         line-height: 16px;
     }
 
-    .broadcast__subtitle{
+    .broadcasts__subtitle{
         margin-top: 20px;
         font-size: 12px;
         line-height: 12px;
@@ -3456,10 +3485,15 @@ section{
     }
 
     .broadcasts__archive{
-        flex-direction: column-reverse;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: column-reverse;
+                flex-direction: column-reverse;
         margin: 0;
         margin-top: 30px;
-        transform: translateX(0);
+        -webkit-transform: translateX(0);
+            -ms-transform: translateX(0);
+                transform: translateX(0);
     }
 
     .archive__btn{
@@ -3482,7 +3516,7 @@ section{
 
     .archive__btn{
         margin-top: 7px;
-        padding: 9.5px 31px;
+        padding: 9.5px 0;
         width: 132px;
     }
 
@@ -3536,7 +3570,7 @@ section{
             flex-wrap: wrap;
     }
 
-    .btn__nav-item{
+    .btn-nav-item{
         text-align: start;
         font-size: 14px;
         line-height: 15px;
@@ -3592,7 +3626,7 @@ section{
         line-height: 12px;
     }
 
-    .filter__radio-list__container{
+    .filter__container{
         position: relative;
         overflow: auto;
         width: 288px;;
@@ -3614,7 +3648,7 @@ section{
         height: 100%;  
     }
 
-    .filter__radio-list__container::-webkit-scrollbar {
+    .filter__container::-webkit-scrollbar {
         display: none; /*chrome*/
     }
 
